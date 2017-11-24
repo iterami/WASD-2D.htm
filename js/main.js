@@ -87,21 +87,31 @@ function logic(){
 
     if(core_keys[core_storage_data['move-↓']]['state']){
         if(player_dx != 0){
-            player_dx = player_dx / 3 * Math.SQRT2;
-            player_dy += Math.SQRT2;
+            var movement = math_move_2d_diagonal({
+              'dx': player_dx,
+              'dy': 1,
+              'speed': 3,
+            });
+            player_dx = movement['x'];
+            player_dy = movement['y'];
 
         }else{
-            player_dy += 3;
+            player_dy = 3;
         }
     }
 
     if(core_keys[core_storage_data['move-↑']]['state']){
         if(player_dx != 0){
-            player_dx = player_dx / 3 * Math.SQRT2;
-            player_dy -= Math.SQRT2;
+            var movement = math_move_2d_diagonal({
+              'dx': player_dx,
+              'dy': -1,
+              'speed': 3,
+            });
+            player_dx = movement['x'];
+            player_dy = movement['y'];
 
         }else{
-            player_dy -= 3;
+            player_dy = -3;
         }
     }
 
