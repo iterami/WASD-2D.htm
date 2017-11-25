@@ -78,11 +78,11 @@ function logic(){
 
     // Add player key movments to dx and dy, if still within level boundaries.
     if(core_keys[core_storage_data['move-←']]['state']){
-        player_dx -= 3;
+        player_dx -= core_storage_data['speed'];
     }
 
     if(core_keys[core_storage_data['move-→']]['state']){
-        player_dx += 3;
+        player_dx += core_storage_data['speed'];
     }
 
     if(core_keys[core_storage_data['move-↓']]['state']){
@@ -90,13 +90,13 @@ function logic(){
             var movement = core_move_2d_diagonal({
               'dx': player_dx,
               'dy': 1,
-              'speed': 3,
+              'speed': core_storage_data['speed'],
             });
             player_dx = movement['x'];
             player_dy = movement['y'];
 
         }else{
-            player_dy = 3;
+            player_dy = core_storage_data['speed'];
         }
     }
 
@@ -105,13 +105,13 @@ function logic(){
             var movement = core_move_2d_diagonal({
               'dx': player_dx,
               'dy': -1,
-              'speed': 3,
+              'speed': core_storage_data['speed'],
             });
             player_dx = movement['x'];
             player_dy = movement['y'];
 
         }else{
-            player_dy = -3;
+            player_dy = -core_storage_data['speed'];
         }
     }
 
@@ -148,8 +148,9 @@ function repo_init(){
       'menu': true,
       'storage': {
         'camera-attach': false,
+        'speed': 3,
       },
-      'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera</table>',
+      'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera<tr><td><input id=speed><td>Speed</table>',
       'title': 'WASD-2D.htm',
       'ui': '<table><tr><td>Move Up<td id=ui-up><tr><td>Move Left<td id=ui-left><tr><td>Move Down<td id=ui-down><tr><td>Move Right<td id=ui-right></table>',
     });
