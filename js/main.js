@@ -73,8 +73,8 @@ function draw_logic(){
 }
 
 function logic(){
-    var player_dx = 0;
-    var player_dy = 0;
+    let player_dx = 0;
+    let player_dy = 0;
 
     // Add player key movments to dx and dy, if still within level boundaries.
     if(core_keys[core_storage_data['move-←']]['state']){
@@ -87,7 +87,7 @@ function logic(){
 
     if(core_keys[core_storage_data['move-↓']]['state']){
         if(player_dx != 0){
-            var movement = core_move_2d_diagonal({
+            let movement = core_move_2d_diagonal({
               'dx': player_dx,
               'dy': 1,
               'speed': core_storage_data['speed'],
@@ -102,7 +102,7 @@ function logic(){
 
     if(core_keys[core_storage_data['move-↑']]['state']){
         if(player_dx != 0){
-            var movement = core_move_2d_diagonal({
+            let movement = core_move_2d_diagonal({
               'dx': player_dx,
               'dy': -1,
               'speed': core_storage_data['speed'],
