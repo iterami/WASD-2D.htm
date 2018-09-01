@@ -152,7 +152,7 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera<tr><td><input id=speed><td>Speed</table>',
       'title': 'WASD-2D.htm',
-      'ui': '<table><tr><td>Move Up<td id=ui-up><tr><td>Move Left<td id=ui-left><tr><td>Move Down<td id=ui-down><tr><td>Move Right<td id=ui-right></table>',
+      'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
     });
     canvas_init();
 }
