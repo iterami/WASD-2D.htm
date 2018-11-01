@@ -124,12 +124,20 @@ function logic(){
       'x1': core_entities['target']['x'],
       'y1': core_entities['target']['y'],
     }) < 25){
+        core_audio_start({
+          'id': 'boop',
+        });
         randomize_target();
     }
 }
 
 function repo_init(){
     core_repo_init({
+      'audios': {
+        'boop': {
+          'duration': .1,
+        },
+      },
       'events': {
         'start': {
           'onclick': function(){
