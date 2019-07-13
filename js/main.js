@@ -76,7 +76,7 @@ function logic(){
     let player_dx = 0;
     let player_dy = 0;
 
-    // Add player key movments to dx and dy, if still within level boundaries.
+    // Add player key movements to dx and dy.
     if(core_keys[core_storage_data['move-←']]['state']){
         player_dx -= core_storage_data['speed'];
     }
