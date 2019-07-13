@@ -124,7 +124,7 @@ function logic(){
       'x1': core_entities['target']['x'],
       'y1': core_entities['target']['y'],
     }) < 25){
-        core_audio_start({
+        audio_start({
           'id': 'boop',
         });
         randomize_target();
@@ -133,11 +133,6 @@ function logic(){
 
 function repo_init(){
     core_repo_init({
-      'audios': {
-        'boop': {
-          'duration': .1,
-        },
-      },
       'events': {
         'start': {
           'onclick': function(){
@@ -162,6 +157,13 @@ function repo_init(){
         + '<tr><td><input id=speed><td>Speed</table>',
       'title': 'WASD-2D.htm',
       'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
+    });
+    audio_create({
+      'audios': {
+        'boop': {
+          'duration': .1,
+        },
+      },
     });
     canvas_init();
 }
