@@ -87,7 +87,7 @@ function logic(){
 
     if(core_keys[core_storage_data['move-↓']]['state']){
         if(player_dx != 0){
-            let movement = core_move_2d_diagonal({
+            let movement = math_move_2d_diagonal({
               'dx': player_dx,
               'dy': 1,
               'speed': core_storage_data['speed'],
@@ -102,7 +102,7 @@ function logic(){
 
     if(core_keys[core_storage_data['move-↑']]['state']){
         if(player_dx != 0){
-            let movement = core_move_2d_diagonal({
+            let movement = math_move_2d_diagonal({
               'dx': player_dx,
               'dy': -1,
               'speed': core_storage_data['speed'],
@@ -118,7 +118,7 @@ function logic(){
     core_entities['player']['x'] += player_dx;
     core_entities['player']['y'] += player_dy;
 
-    if(core_distance({
+    if(math_distance({
       'x0': core_entities['player']['x'],
       'y0': core_entities['player']['y'],
       'x1': core_entities['target']['x'],
