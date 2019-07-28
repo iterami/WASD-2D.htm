@@ -10,8 +10,8 @@ function draw_logic(){
     if(core_storage_data['camera-attach']){
         canvas_buffer.save();
         canvas_buffer.translate(
-          -core_entities['player']['x'],
-          -core_entities['player']['y']
+          -entity_entities['player']['x'],
+          -entity_entities['player']['y']
         );
 
         // Draw target.
@@ -21,8 +21,8 @@ function draw_logic(){
           },
         });
         canvas_buffer.fillRect(
-          core_entities['target']['x'] - 5,
-          core_entities['target']['y'] - 5,
+          entity_entities['target']['x'] - 5,
+          entity_entities['target']['y'] - 5,
           10,
           10
         );
@@ -49,8 +49,8 @@ function draw_logic(){
           },
         });
         canvas_buffer.fillRect(
-          core_entities['player']['x'] - 17,
-          core_entities['player']['y'] - 17,
+          entity_entities['player']['x'] - 17,
+          entity_entities['player']['y'] - 17,
           34,
           34
         );
@@ -62,8 +62,8 @@ function draw_logic(){
           },
         });
         canvas_buffer.fillRect(
-          core_entities['target']['x'] - 5,
-          core_entities['target']['y'] - 5,
+          entity_entities['target']['x'] - 5,
+          entity_entities['target']['y'] - 5,
           10,
           10
         );
@@ -115,14 +115,14 @@ function logic(){
         }
     }
 
-    core_entities['player']['x'] += player_dx;
-    core_entities['player']['y'] += player_dy;
+    entity_entities['player']['x'] += player_dx;
+    entity_entities['player']['y'] += player_dy;
 
     if(math_distance({
-      'x0': core_entities['player']['x'],
-      'y0': core_entities['player']['y'],
-      'x1': core_entities['target']['x'],
-      'y1': core_entities['target']['y'],
+      'x0': entity_entities['player']['x'],
+      'y0': entity_entities['player']['y'],
+      'x1': entity_entities['target']['x'],
+      'y1': entity_entities['target']['y'],
     }) < 25){
         audio_start({
           'id': 'boop',
