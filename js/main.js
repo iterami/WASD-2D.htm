@@ -151,10 +151,14 @@ function repo_init(){
       'menu': true,
       'storage': {
         'camera-attach': false,
+        'height': 500,
         'speed': 3,
+        'width': 500,
       },
       'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
-        + '<tr><td><input id=speed><td>Speed</table>',
+        + '<tr><td><input id=height><td>Height'
+        + '<tr><td><input id=speed><td>Speed'
+        + '<tr><td><input id=width><td>Width</table>',
       'title': 'WASD-2D.htm',
       'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
     });
