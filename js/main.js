@@ -86,32 +86,40 @@ function logic(){
     }
 
     if(core_keys[core_storage_data['move-↓']]['state']){
-        if(player_dx != 0){
-            let movement = math_move_2d_diagonal({
-              'dx': player_dx,
-              'dy': 1,
-              'speed': core_storage_data['speed'],
-            });
-            player_dx = movement['x'];
-            player_dy = movement['y'];
+        player_dy = core_storage_data['speed'];
 
-        }else{
-            player_dy = core_storage_data['speed'];
+        if(player_dx != 0){
+            if(!core_storage_data['diagonal']){
+                player_dy = 0;
+
+            }else{
+                let movement = math_move_2d_diagonal({
+                  'dx': player_dx,
+                  'dy': 1,
+                  'speed': core_storage_data['speed'],
+                });
+                player_dx = movement['x'];
+                player_dy = movement['y'];
+            }
         }
     }
 
     if(core_keys[core_storage_data['move-↑']]['state']){
-        if(player_dx != 0){
-            let movement = math_move_2d_diagonal({
-              'dx': player_dx,
-              'dy': -1,
-              'speed': core_storage_data['speed'],
-            });
-            player_dx = movement['x'];
-            player_dy = movement['y'];
+        player_dy = -core_storage_data['speed'];
 
-        }else{
-            player_dy = -core_storage_data['speed'];
+        if(player_dx != 0){
+            if(!core_storage_data['diagonal']){
+                player_dy = 0;
+
+            }else{
+                let movement = math_move_2d_diagonal({
+                  'dx': player_dx,
+                  'dy': -1,
+                  'speed': core_storage_data['speed'],
+                });
+                player_dx = movement['x'];
+                player_dy = movement['y'];
+            }
         }
     }
 
@@ -151,11 +159,13 @@ function repo_init(){
       'menu': true,
       'storage': {
         'camera-attach': false,
+        'diagonal': true,
         'height': 500,
         'speed': 3,
         'width': 500,
       },
       'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
+        + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
         + '<tr><td><input id=height><td>Height'
         + '<tr><td><input id=speed><td>Speed'
         + '<tr><td><input id=width><td>Width</table>',
