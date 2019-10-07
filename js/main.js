@@ -143,20 +143,12 @@ function repo_init(){
     core_repo_init({
       'events': {
         'start': {
-          'onclick': function(){
-              canvas_setmode({
-                'newgame': true,
-              });
-          },
+          'onclick': core_repo_reset,
         },
       },
       'info': '<input id=start type=button value="Start Training">',
-      'keybinds': {
-        72: {
-          'todo': canvas_setmode,
-        },
-      },
       'menu': true,
+      'reset': canvas_setmode,
       'storage': {
         'camera-attach': false,
         'diagonal': true,
