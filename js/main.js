@@ -88,7 +88,7 @@ function logic(){
     if(core_keys[core_storage_data['move-↓']]['state']){
         player_dy = core_storage_data['speed'];
 
-        if(player_dx != 0){
+        if(player_dx !== 0){
             if(!core_storage_data['diagonal']){
                 player_dy = 0;
 
@@ -107,7 +107,7 @@ function logic(){
     if(core_keys[core_storage_data['move-↑']]['state']){
         player_dy = -core_storage_data['speed'];
 
-        if(player_dx != 0){
+        if(player_dx !== 0){
             if(!core_storage_data['diagonal']){
                 player_dy = 0;
 
