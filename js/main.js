@@ -93,7 +93,7 @@ function logic(){
                 player_dy = 0;
 
             }else{
-                let movement = math_move_2d_diagonal({
+                const movement = math_move_2d_diagonal({
                   'dx': player_dx,
                   'dy': 1,
                   'speed': core_storage_data['speed'],
@@ -112,7 +112,7 @@ function logic(){
                 player_dy = 0;
 
             }else{
-                let movement = math_move_2d_diagonal({
+                const movement = math_move_2d_diagonal({
                   'dx': player_dx,
                   'dy': -1,
                   'speed': core_storage_data['speed'],
