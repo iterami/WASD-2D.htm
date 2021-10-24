@@ -1,6 +1,6 @@
 'use strict';
 
-function draw_logic(){
+function repo_drawlogic(){
     canvas_buffer.save();
     canvas_buffer.translate(
       canvas_properties['width-half'],
@@ -72,7 +72,7 @@ function draw_logic(){
     canvas_buffer.restore();
 }
 
-function logic(){
+function repo_logic(){
     let player_dx = 0;
     let player_dy = 0;
 
