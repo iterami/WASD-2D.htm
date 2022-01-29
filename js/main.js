@@ -8,13 +8,24 @@ function repo_drawlogic(){
     );
 
     if(core_storage_data['camera-attach']){
+        canvas_setproperties({
+          'properties': {
+            'fillStyle': core_storage_data['color-positive'],
+          },
+        });
+        canvas_buffer.fillRect(
+          -17,
+          -17,
+          34,
+          34
+        );
+
         canvas_buffer.save();
         canvas_buffer.translate(
           -entity_entities['player']['x'],
           -entity_entities['player']['y']
         );
 
-        // Draw target.
         canvas_setproperties({
           'properties': {
             'fillStyle': core_storage_data['color-negative'],
@@ -28,21 +39,7 @@ function repo_drawlogic(){
         );
         canvas_buffer.restore();
 
-        // Draw player.
-        canvas_setproperties({
-          'properties': {
-            'fillStyle': core_storage_data['color-positive'],
-          },
-        });
-        canvas_buffer.fillRect(
-          -17,
-          -17,
-          34,
-          34
-        );
-
     }else{
-        // Draw player.
         canvas_setproperties({
           'properties': {
             'fillStyle': core_storage_data['color-positive'],
@@ -55,7 +52,6 @@ function repo_drawlogic(){
           34
         );
 
-        // Draw target.
         canvas_setproperties({
           'properties': {
             'fillStyle': core_storage_data['color-negative'],
@@ -76,11 +72,9 @@ function repo_logic(){
     let player_dx = 0;
     let player_dy = 0;
 
-    // Add player key movements to dx and dy.
     if(core_keys[core_storage_data['move-←']]['state']){
         player_dx -= core_storage_data['speed'];
     }
-
     if(core_keys[core_storage_data['move-→']]['state']){
         player_dx += core_storage_data['speed'];
     }
@@ -103,7 +97,6 @@ function repo_logic(){
             }
         }
     }
-
     if(core_keys[core_storage_data['move-↑']]['state']){
         player_dy = -core_storage_data['speed'];
 
@@ -127,11 +120,11 @@ function repo_logic(){
     entity_entities['player']['y'] += player_dy;
 
     if(math_distance({
-      'x0': entity_entities['player']['x'],
-      'y0': entity_entities['player']['y'],
-      'x1': entity_entities['target']['x'],
-      'y1': entity_entities['target']['y'],
-    }) < 25){
+        'x0': entity_entities['player']['x'],
+        'y0': entity_entities['player']['y'],
+        'x1': entity_entities['target']['x'],
+        'y1': entity_entities['target']['y'],
+      }) < 25){
         audio_start({
           'id': 'boop',
         });
