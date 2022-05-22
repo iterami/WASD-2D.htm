@@ -147,7 +147,6 @@ function repo_init(){
         },
       },
       'info': '<input id=start type=button value="Start Training">',
-      'menu': true,
       'reset': canvas_setmode,
       'storage': {
         'camera-attach': false,
