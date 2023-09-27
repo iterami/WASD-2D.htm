@@ -30,8 +30,8 @@ function randomize_target(){
 }
 
 function repo_drawlogic(){
-    canvas_buffer.save();
-    canvas_buffer.translate(
+    canvas.save();
+    canvas.translate(
       canvas_properties['width-half'],
       canvas_properties['height-half']
     );
@@ -42,15 +42,15 @@ function repo_drawlogic(){
             'fillStyle': core_storage_data['color-positive'],
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           -17,
           -17,
           34,
           34
         );
 
-        canvas_buffer.save();
-        canvas_buffer.translate(
+        canvas.save();
+        canvas.translate(
           -entity_entities['player']['x'],
           -entity_entities['player']['y']
         );
@@ -60,13 +60,13 @@ function repo_drawlogic(){
             'fillStyle': core_storage_data['color-negative'],
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           entity_entities['target']['x'] - 5,
           entity_entities['target']['y'] - 5,
           10,
           10
         );
-        canvas_buffer.restore();
+        canvas.restore();
 
     }else{
         canvas_setproperties({
@@ -74,7 +74,7 @@ function repo_drawlogic(){
             'fillStyle': core_storage_data['color-positive'],
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           entity_entities['player']['x'] - 17,
           entity_entities['player']['y'] - 17,
           34,
@@ -86,7 +86,7 @@ function repo_drawlogic(){
             'fillStyle': core_storage_data['color-negative'],
           },
         });
-        canvas_buffer.fillRect(
+        canvas.fillRect(
           entity_entities['target']['x'] - 5,
           entity_entities['target']['y'] - 5,
           10,
@@ -94,7 +94,7 @@ function repo_drawlogic(){
         );
     }
 
-    canvas_buffer.restore();
+    canvas.restore();
 }
 
 function repo_logic(){
