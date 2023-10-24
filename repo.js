@@ -12,10 +12,10 @@ function load_data(id){
 
     core_ui_update({
       'ids': {
-        'down': String.fromCharCode(core_storage_data['move-↓']),
-        'left': String.fromCharCode(core_storage_data['move-←']),
-        'right': String.fromCharCode(core_storage_data['move-→']),
-        'up': String.fromCharCode(core_storage_data['move-↑']),
+        'down': core_storage_data['move-↓'],
+        'left': core_storage_data['move-←'],
+        'right': core_storage_data['move-→'],
+        'up': core_storage_data['move-↑'],
       },
     });
 }
