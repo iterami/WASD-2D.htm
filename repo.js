@@ -175,7 +175,7 @@ function repo_init(){
           'onclick': core_repo_reset,
         },
       },
-      'info': '<input id=start type=button value="Start Training">',
+      'info': '<button id=start type=button>Start Training</button>',
       'reset': canvas_setmode,
       'storage': {
         'camera-attach': false,
