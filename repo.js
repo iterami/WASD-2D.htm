@@ -154,9 +154,7 @@ function repo_logic(){
         'x1': entity_entities['target']['x'],
         'y1': entity_entities['target']['y'],
       }) < 25){
-        audio_start({
-          'id': 'boop',
-        });
+        audio_start('boop');
         randomize_target();
     }
 }
@@ -191,13 +189,6 @@ function repo_init(){
         + '<tr><td><input class=mini id=width min=1 step=any type=number><td>Width</table>',
       'title': 'WASD-2D.htm',
       'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
-    });
-    audio_create({
-      'audios': {
-        'boop': {
-          'duration': .1,
-        },
-      },
     });
     canvas_init();
 }
