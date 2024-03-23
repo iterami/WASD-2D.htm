@@ -38,9 +38,7 @@ function repo_drawlogic(){
 
     if(core_storage_data['camera-attach']){
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#206620',
-          },
+          'fillStyle': '#206620',
         });
         canvas.fillRect(
           -17,
@@ -56,9 +54,7 @@ function repo_drawlogic(){
         );
 
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#663366',
-          },
+          'fillStyle': '#663366',
         });
         canvas.fillRect(
           entity_entities['target']['x'] - 5,
@@ -70,9 +66,7 @@ function repo_drawlogic(){
 
     }else{
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#206620',
-          },
+          'fillStyle': '#206620',
         });
         canvas.fillRect(
           entity_entities['player']['x'] - 17,
@@ -82,9 +76,7 @@ function repo_drawlogic(){
         );
 
         canvas_setproperties({
-          'properties': {
-            'fillStyle': '#663366',
-          },
+          'fillStyle': '#663366',
         });
         canvas.fillRect(
           entity_entities['target']['x'] - 5,
