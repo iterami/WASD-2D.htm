@@ -154,7 +154,7 @@ function repo_logic(){
 function repo_escape(){
     if(!entity_entities['player']
       && !core_menu_open){
-        core_repo_reset();
+        canvas_setmode();
     }
 }
 
@@ -162,11 +162,10 @@ function repo_init(){
     core_repo_init({
       'events': {
         'start': {
-          'onclick': core_repo_reset,
+          'onclick': canvas_setmode,
         },
       },
       'info': '<button id=start type=button>Start Training</button>',
-      'reset': canvas_setmode,
       'storage': {
         'camera-attach': false,
         'diagonal': true,
@@ -174,6 +173,7 @@ function repo_init(){
         'speed': 3,
         'width': 500,
       },
+      'storage-controls': true,
       'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
         + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
         + '<tr><td><input class=mini id=height min=1 step=any type=number><td>Height'
