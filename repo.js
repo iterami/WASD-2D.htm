@@ -89,6 +89,40 @@ function repo_drawlogic(){
     canvas.restore();
 }
 
+function repo_escape(){
+    if(!entity_entities['player']
+      && !core_menu_open){
+        canvas_setmode();
+    }
+}
+
+function repo_init(){
+    core_repo_init({
+      'events': {
+        'start': {
+          'onclick': canvas_setmode,
+        },
+      },
+      'info': '<button id=start type=button>Start Training</button>',
+      'storage': {
+        'camera-attach': false,
+        'diagonal': true,
+        'height': 500,
+        'speed': 3,
+        'width': 500,
+      },
+      'storage-controls': true,
+      'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
+        + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
+        + '<tr><td><input class=mini id=height min=1 step=any type=number><td>Height'
+        + '<tr><td><input class=mini id=speed step=any type=number><td>Speed'
+        + '<tr><td><input class=mini id=width min=1 step=any type=number><td>Width</table>',
+      'title': 'WASD-2D.htm',
+      'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
+    });
+    canvas_init();
+}
+
 function repo_logic(){
     let player_dx = 0;
     let player_dy = 0;
@@ -149,38 +183,4 @@ function repo_logic(){
         audio_start('boop');
         randomize_target();
     }
-}
-
-function repo_escape(){
-    if(!entity_entities['player']
-      && !core_menu_open){
-        canvas_setmode();
-    }
-}
-
-function repo_init(){
-    core_repo_init({
-      'events': {
-        'start': {
-          'onclick': canvas_setmode,
-        },
-      },
-      'info': '<button id=start type=button>Start Training</button>',
-      'storage': {
-        'camera-attach': false,
-        'diagonal': true,
-        'height': 500,
-        'speed': 3,
-        'width': 500,
-      },
-      'storage-controls': true,
-      'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
-        + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
-        + '<tr><td><input class=mini id=height min=1 step=any type=number><td>Height'
-        + '<tr><td><input class=mini id=speed step=any type=number><td>Speed'
-        + '<tr><td><input class=mini id=width min=1 step=any type=number><td>Width</table>',
-      'title': 'WASD-2D.htm',
-      'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
-    });
-    canvas_init();
 }
