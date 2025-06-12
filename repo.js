@@ -21,12 +21,8 @@ function load_data(id){
 }
 
 function randomize_target(){
-    entity_entities['target']['x'] = core_random_integer({
-      'max': core_storage_data['width'],
-    }) - core_storage_data['width'] / 2;
-    entity_entities['target']['y'] = core_random_integer({
-      'max': core_storage_data['height'],
-    }) - core_storage_data['height'] / 2;
+    entity_entities['target']['x'] = core_random_integer(core_storage_data['width']) - core_storage_data['width'] / 2;
+    entity_entities['target']['y'] = core_random_integer(core_storage_data['height']) - core_storage_data['height'] / 2;
 }
 
 function repo_drawlogic(){
