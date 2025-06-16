@@ -21,18 +21,18 @@ function load_data(id){
 }
 
 function randomize_target(){
-    entity_entities['target']['x'] = core_random_integer(core_storage_data['width']) - core_storage_data['width'] / 2;
-    entity_entities['target']['y'] = core_random_integer(core_storage_data['height']) - core_storage_data['height'] / 2;
+    entity_entities.target.x = core_random_integer(core_storage_data.width) - core_storage_data.width / 2;
+    entity_entities.target.y = core_random_integer(core_storage_data.height) - core_storage_data.height / 2;
 }
 
 function repo_drawlogic(){
     canvas.save();
     canvas.translate(
-      canvas_properties['width-half'],
-      canvas_properties['height-half']
+      canvas_properties.width_half,
+      canvas_properties.height_half
     );
 
-    if(core_storage_data['camera-attach']){
+    if(core_storage_data.camera_attach){
         canvas_setproperties({
           'fillStyle': '#206620',
         });
@@ -45,16 +45,16 @@ function repo_drawlogic(){
 
         canvas.save();
         canvas.translate(
-          -entity_entities['player']['x'],
-          -entity_entities['player']['y']
+          -entity_entities.player.x,
+          -entity_entities.player.y
         );
 
         canvas_setproperties({
           'fillStyle': '#663366',
         });
         canvas.fillRect(
-          entity_entities['target']['x'] - 5,
-          entity_entities['target']['y'] - 5,
+          entity_entities.target.x - 5,
+          entity_entities.target.y - 5,
           10,
           10
         );
@@ -65,8 +65,8 @@ function repo_drawlogic(){
           'fillStyle': '#206620',
         });
         canvas.fillRect(
-          entity_entities['player']['x'] - 17,
-          entity_entities['player']['y'] - 17,
+          entity_entities.player.x - 17,
+          entity_entities.player.y - 17,
           34,
           34
         );
@@ -75,8 +75,8 @@ function repo_drawlogic(){
           'fillStyle': '#663366',
         });
         canvas.fillRect(
-          entity_entities['target']['x'] - 5,
-          entity_entities['target']['y'] - 5,
+          entity_entities.target.x - 5,
+          entity_entities.target.y - 5,
           10,
           10
         );
@@ -86,7 +86,7 @@ function repo_drawlogic(){
 }
 
 function repo_escape(){
-    if(!entity_entities['player']
+    if(!entity_entities.player
       && !core_menu_open){
         canvas_setmode();
     }
@@ -101,14 +101,14 @@ function repo_init(){
       },
       'info': '<button id=start type=button>Start Training</button>',
       'storage': {
-        'camera-attach': false,
+        'camera_attach': false,
         'diagonal': true,
         'height': 500,
         'speed': 3,
         'width': 500,
       },
       'storage-controls': true,
-      'storage-menu': '<table><tr><td><input id=camera-attach type=checkbox><td>Attach Camera'
+      'storage-menu': '<table><tr><td><input id=camera_attach type=checkbox><td>Attach Camera'
         + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
         + '<tr><td><input class=mini id=height min=1 step=any type=number><td>Height'
         + '<tr><td><input class=mini id=speed step=any type=number><td>Speed'
@@ -123,58 +123,58 @@ function repo_logic(){
     let player_dx = 0;
     let player_dy = 0;
 
-    if(core_keys[core_storage_data['move-←']]['state']){
-        player_dx -= core_storage_data['speed'];
+    if(core_keys[core_storage_data['move-←']].state){
+        player_dx -= core_storage_data.speed;
     }
-    if(core_keys[core_storage_data['move-→']]['state']){
-        player_dx += core_storage_data['speed'];
+    if(core_keys[core_storage_data['move-→']].state){
+        player_dx += core_storage_data.speed;
     }
 
-    if(core_keys[core_storage_data['move-↓']]['state']){
-        player_dy = core_storage_data['speed'];
+    if(core_keys[core_storage_data['move-↓']].state){
+        player_dy = core_storage_data.speed;
 
         if(player_dx !== 0){
-            if(!core_storage_data['diagonal']){
+            if(!core_storage_data.diagonal){
                 player_dy = 0;
 
             }else{
                 const movement = math_move_2d_diagonal({
                   'dx': player_dx,
                   'dy': 1,
-                  'speed': core_storage_data['speed'],
+                  'speed': core_storage_data.speed,
                 });
-                player_dx = movement['x'];
-                player_dy = movement['y'];
+                player_dx = movement.x;
+                player_dy = movement.y;
             }
         }
     }
-    if(core_keys[core_storage_data['move-↑']]['state']){
-        player_dy = -core_storage_data['speed'];
+    if(core_keys[core_storage_data['move-↑']].state){
+        player_dy = -core_storage_data.speed;
 
         if(player_dx !== 0){
-            if(!core_storage_data['diagonal']){
+            if(!core_storage_data.diagonal){
                 player_dy = 0;
 
             }else{
                 const movement = math_move_2d_diagonal({
                   'dx': player_dx,
                   'dy': -1,
-                  'speed': core_storage_data['speed'],
+                  'speed': core_storage_data.speed,
                 });
-                player_dx = movement['x'];
-                player_dy = movement['y'];
+                player_dx = movement.x;
+                player_dy = movement.y;
             }
         }
     }
 
-    entity_entities['player']['x'] += player_dx;
-    entity_entities['player']['y'] += player_dy;
+    entity_entities.player.x += player_dx;
+    entity_entities.player.y += player_dy;
 
     if(math_distance({
-        'x0': entity_entities['player']['x'],
-        'y0': entity_entities['player']['y'],
-        'x1': entity_entities['target']['x'],
-        'y1': entity_entities['target']['y'],
+        'x0': entity_entities.player.x,
+        'y0': entity_entities.player.y,
+        'x1': entity_entities.target.x,
+        'y1': entity_entities.target.y,
       }) < 25){
         audio_start('boop');
         randomize_target();
