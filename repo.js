@@ -108,7 +108,7 @@ function repo_init(){
         'width': 500,
       },
       'storage_controls': true,
-      'storage-menu': '<table><tr><td><input id=camera_attach type=checkbox><td>Attach Camera'
+      'storage_menu': '<table><tr><td><input id=camera_attach type=checkbox><td>Attach Camera'
         + '<tr><td><input id=diagonal type=checkbox><td>Diagonal Movement'
         + '<tr><td><input class=mini id=height min=1 step=any type=number><td>Height'
         + '<tr><td><input class=mini id=speed step=any type=number><td>Speed'
