@@ -12,10 +12,10 @@ function load_data(id){
 
     core_ui_update({
       'ids': {
-        'down': core_storage_data['move-↓'],
-        'left': core_storage_data['move-←'],
-        'right': core_storage_data['move-→'],
-        'up': core_storage_data['move-↑'],
+        'down': core_storage_data.move_down,
+        'left': core_storage_data.move_left,
+        'right': core_storage_data.move_right,
+        'up': core_storage_data.move_up,
       },
     });
 }
@@ -123,14 +123,14 @@ function repo_logic(){
     let player_dx = 0;
     let player_dy = 0;
 
-    if(core_keys[core_storage_data['move-←']].state){
+    if(core_keys[core_storage_data.move_left].state){
         player_dx -= core_storage_data.speed;
     }
-    if(core_keys[core_storage_data['move-→']].state){
+    if(core_keys[core_storage_data.move_right].state){
         player_dx += core_storage_data.speed;
     }
 
-    if(core_keys[core_storage_data['move-↓']].state){
+    if(core_keys[core_storage_data.move_down].state){
         player_dy = core_storage_data.speed;
 
         if(player_dx !== 0){
@@ -148,7 +148,7 @@ function repo_logic(){
             }
         }
     }
-    if(core_keys[core_storage_data['move-↑']].state){
+    if(core_keys[core_storage_data.move_up].state){
         player_dy = -core_storage_data.speed;
 
         if(player_dx !== 0){
