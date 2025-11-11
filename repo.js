@@ -131,39 +131,31 @@ function repo_logic(){
     }
 
     if(core_keys[core_storage_data.move_down].state){
-        player_dy += core_storage_data.speed;
+        if(player_dx === 0){
+            player_dy += core_storage_data.speed;
 
-        if(player_dx !== 0){
-            if(!core_storage_data.diagonal){
-                player_dy = 0;
-
-            }else{
-                const movement = math_move_2d_diagonal({
-                  'dx': player_dx,
-                  'dy': 1,
-                  'speed': core_storage_data.speed,
-                });
-                player_dx = movement.x;
-                player_dy = movement.y;
-            }
+        }else if(core_storage_data.diagonal){
+            const movement = math_move_2d_diagonal({
+              'dx': player_dx,
+              'dy': 1,
+              'speed': core_storage_data.speed,
+            });
+            player_dx = movement.x;
+            player_dy = movement.y;
         }
     }
     if(core_keys[core_storage_data.move_up].state){
-        player_dy -= core_storage_data.speed;
+        if(player_dx === 0){
+            player_dy -= core_storage_data.speed;
 
-        if(player_dx !== 0){
-            if(!core_storage_data.diagonal){
-                player_dy = 0;
-
-            }else{
-                const movement = math_move_2d_diagonal({
-                  'dx': player_dx,
-                  'dy': -1,
-                  'speed': core_storage_data.speed,
-                });
-                player_dx = movement.x;
-                player_dy = movement.y;
-            }
+        }else if(core_storage_data.diagonal){
+            const movement = math_move_2d_diagonal({
+              'dx': player_dx,
+              'dy': -1,
+              'speed': core_storage_data.speed,
+            });
+            player_dx = movement.x;
+            player_dy = movement.y;
         }
     }
 
