@@ -99,7 +99,7 @@ function repo_init(){
           'onclick': canvas_setmode,
         },
       },
-      'info': '<button id=start type=button>Start Training</button>',
+      'info': '<button id=start type=button>Reset Training</button>',
       'storage': {
         'camera_attach': false,
         'diagonal': true,
