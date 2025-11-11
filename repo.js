@@ -131,7 +131,7 @@ function repo_logic(){
     }
 
     if(core_keys[core_storage_data.move_down].state){
-        player_dy = core_storage_data.speed;
+        player_dy += core_storage_data.speed;
 
         if(player_dx !== 0){
             if(!core_storage_data.diagonal){
@@ -149,7 +149,7 @@ function repo_logic(){
         }
     }
     if(core_keys[core_storage_data.move_up].state){
-        player_dy = -core_storage_data.speed;
+        player_dy -= core_storage_data.speed;
 
         if(player_dx !== 0){
             if(!core_storage_data.diagonal){
