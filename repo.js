@@ -1,25 +1,5 @@
 'use strict';
 
-function load_data(id){
-    entity_create({
-      'id': 'player',
-    });
-    entity_create({
-      'id': 'target',
-    });
-
-    randomize_target();
-
-    core_ui_update({
-      'ids': {
-        'down': core_storage_data.move_down,
-        'left': core_storage_data.move_left,
-        'right': core_storage_data.move_right,
-        'up': core_storage_data.move_up,
-      },
-    });
-}
-
 function randomize_target(){
     entity_entities.target.x = core_random_integer(core_storage_data.width) - core_storage_data.width / 2;
     entity_entities.target.y = core_random_integer(core_storage_data.height) - core_storage_data.height / 2;
@@ -117,6 +97,26 @@ function repo_init(){
       'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
     });
     canvas_init();
+}
+
+function repo_load(id){
+    entity_create({
+      'id': 'player',
+    });
+    entity_create({
+      'id': 'target',
+    });
+
+    randomize_target();
+
+    core_ui_update({
+      'ids': {
+        'down': core_storage_data.move_down,
+        'left': core_storage_data.move_left,
+        'right': core_storage_data.move_right,
+        'up': core_storage_data.move_up,
+      },
+    });
 }
 
 function repo_logic(){
