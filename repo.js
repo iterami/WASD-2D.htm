@@ -75,11 +75,10 @@ function repo_escape(){
 function repo_init(){
     core_repo_init({
       'events': {
-        'start': {
+        'reset': {
           'onclick': canvas_setmode,
         },
       },
-      'info': '<button id=start type=button>Reset Training</button>',
       'storage': {
         'camera_attach': false,
         'diagonal': true,
@@ -94,7 +93,7 @@ function repo_init(){
         + '<tr><td><input class=mini id=speed step=any type=number><td>Speed'
         + '<tr><td><input class=mini id=width min=1 step=any type=number><td>Width</table>',
       'title': 'WASD-2D.htm',
-      'ui': '<table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
+      'ui': '<button id=reset type=button>Reset</button><table><tr><td>Move Up<td id=up><tr><td>Move Left<td id=left><tr><td>Move Down<td id=down><tr><td>Move Right<td id=right></table>',
     });
     canvas_init();
 }
