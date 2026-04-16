@@ -66,6 +66,8 @@ function repo_drawlogic(){
 }
 
 function repo_escape(){
+    audio_state_all(!core_menu_open);
+
     if(!entity_entities.player
       && !core_menu_open){
         canvas_setmode();
